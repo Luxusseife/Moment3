@@ -1,0 +1,21 @@
+// Normalisering.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Typsnitt.
+$font-stack: "anona", sans-serif;
+
+// Färger, ljust tema.
+$primary-color: #ffffff;
+$secondary-color: #3c5c4f;
+$black: #000000;
+
+// Färger, mörkt tema.
+$primary-dark-color: #3c5c4f;
+$secondary-dark-color: #ffffff;
+$white: #ffffff;
+
+// Mixins.
