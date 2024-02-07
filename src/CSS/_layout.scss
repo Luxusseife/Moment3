@@ -47,7 +47,6 @@ footer {
     text-align: center;
     line-height: 1.6;
     padding: 1rem 0 0 0;
-    // box-shadow: 0 3px 20px 15px lighten($black, 15%);
 }
 
 /* Mobil-meny, ändras till vanlig meny vid min-bredd 992px. */
@@ -88,7 +87,6 @@ footer {
             padding: 1rem;
 
             &:hover {
-                cursor: pointer;
                 text-decoration: none;
                 color: $primary-color;
                 border-radius: 5px;
@@ -128,9 +126,17 @@ h2 {
 .grid-container-index, .grid-container-sass {
     @include grid-container-small;
 
-    .grid-item-1-index, .grid-item-1-sass {
+    .grid-item-1-index {
         .img {
             @include images;
+            @include border (10px, false);
+        }
+    }
+
+    .grid-item-1-sass {
+        .img {
+            @include images;
+            @include border (10px, true);
         }
     }
 
@@ -165,6 +171,7 @@ h2 {
 
 /* Media-query för mörkt färgtema, gäller samtliga sidor. */
 @media (prefers-color-scheme:dark) {
+
     body {
         background-color: $primary-dark-color;
         color: $secondary-dark-color;
@@ -200,12 +207,12 @@ h2 {
         box-shadow: 0 50px 0 92.5px $secondary-dark-color;
     }
 
-    h1, h2 {
-        @include text-shadow;
-    }
-
     h1, h2, .grid-item-2-index p, .grid-item-2-index ul, .grid-item-2-sass p {
         color: $primary-color;
+    }
+
+    h1, h2 {
+        @include text-shadow;
     }
 
     .grid-container-index .grid-item-1-index .img, .grid-container-sass .grid-item-1-sass .img {

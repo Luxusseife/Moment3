@@ -56,10 +56,18 @@ $secondary-dark-color: darken($secondary-color, 15%);
 
 // Mixin för bilder.
 @mixin images {
-    border: 10px solid $secondary-color;
     border-radius: 5%;
     box-shadow: 10px 10px 20px $black;
     width: 100%;
     height: auto;
     max-width: 250px;
 }
+
+// Mixin för borderfärg på bilder.
+@mixin border ($border, $picture) {
+    border: $border solid darken($primary-color, 75%);
+
+    @if $picture {
+       border: $border solid lighten($secondary-color, 15%); 
+    }
+} 

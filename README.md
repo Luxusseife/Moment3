@@ -12,5 +12,7 @@ Syftet med uppgiften är att jag ska förstå syftet med CSS-preprocessorer och 
 3. Göra en enkel webbplats-grund inkl. header, main och footer med HTML, SCSS och JS. 
 4. Skapa innehållet för index.html och använda mig av CSS-preprocessorer.
 5. Skapa innehållet för undersidan SASS och använda mig av CSS-preprocessorer.
+6. Se över arbetet, validera kod samt göra en merge av dev- och mainbranchen när allt är klart.
+7. Göra en sista push till main och publicera webbplatsen på Netlify.
 
 #### _Skapad av Jenny Lind, jeli2308_.
