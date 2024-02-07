@@ -8,14 +8,16 @@
 // Typsnitt.
 $font-stack: "anona", sans-serif;
 
-// Färger, ljust tema.
-$primary-color: #ffffff;
-$secondary-color: #3c5c4f;
+// Färger.
 $black: #000000;
+$white: #ffffff;
+
+// Färger, ljust tema.
+$primary-color: #e3f5eb;
+$secondary-color: #3c5c4f;
 
 // Färger, mörkt tema.
-$primary-dark-color: #3c5c4f;
-$secondary-dark-color: #ffffff;
-$white: #ffffff;
+$primary-dark-color: $secondary-color;
+$secondary-dark-color: darken($secondary-color, 15%);
 
 // Mixins.

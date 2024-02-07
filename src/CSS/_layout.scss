@@ -21,6 +21,7 @@ header {
     width: 100%;
     height: 150px;
     margin: 0;
+    box-shadow: 0 3px 20px 10px lighten(base.$black, 15%);
 
     #logo {
         padding: 0 0 0 50px;
@@ -39,6 +40,7 @@ footer {
     text-align: center;
     line-height: 1.6;
     padding: 1rem 0 0 0;
+    // box-shadow: 0 3px 20px 15px lighten(base.$black, 15%);
 }
 
 /* MOBIL-MENYN, ÄNDRAS TILL VANLIG NAV-MENY VID MINBREDD 992PX (STÖRRE SKÄRMAR). */
@@ -98,7 +100,7 @@ footer {
             font-size: 22px;
 
             &:hover {
-                text-shadow: 2px 3px base.$black;
+                text-shadow: 2px 4px 3px base.$black;
                 color: base.$primary-color;
                 text-decoration: none;
             }
@@ -113,13 +115,22 @@ footer {
         color: base.$secondary-dark-color;
     }
 
+    header {
+        box-shadow: 0 3px 20px 10px lighten(base.$black, 5%);
+    }
+
     header, footer, nav ul {
         background-color: base.$secondary-dark-color;
-        color: base.$primary-dark-color;
+    }
+
+    @media (max-width: 991px) {
+        nav {
+            background-color: base.$secondary-dark-color;
+        }
     }
 
     nav li {
-        color: base.$primary-dark-color; 
+        color: base.$primary-color; 
 
         &:hover {
             background-color: darken(base.$primary-dark-color, 5%);
@@ -127,10 +138,10 @@ footer {
     }
 
     nav a {
-        color: base.$primary-dark-color;
+        color: base.$primary-color;
     }
 
     .close {
-        box-shadow: 0 50px 0 92.5px base.$white;
+        box-shadow: 0 50px 0 92.5px base.$secondary-dark-color;
     }
 }
