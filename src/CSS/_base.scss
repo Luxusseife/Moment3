@@ -20,4 +20,14 @@ $secondary-color: #3c5c4f;
 $primary-dark-color: $secondary-color;
 $secondary-dark-color: darken($secondary-color, 15%);
 
-// Mixins.
+// Mixin för flex, centering. 
+@mixin center-flex {
+    display: flex;
+    align-items: center;
+}
+
+// Mixin för radhöjd och radlängd.
+@mixin line-height-length {
+    line-height: 1.6;
+    max-width: 55ch;
+}

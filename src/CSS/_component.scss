@@ -46,8 +46,7 @@ nav {
 
 /* Meny-knapp, öppnar menyn nav. */
 .menu-btn {
-    display: flex;
-    align-items: center;
+    @include base.center-flex;
     background-color: lighten(base.$secondary-color, 5%);
     cursor: pointer;
     padding: 10px 10px;

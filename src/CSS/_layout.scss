@@ -13,9 +13,8 @@ body {
 
 /* Header inkl. logotyp. */
 header {
-    display: flex;
+    @include base.center-flex;
     justify-content: space-between;
-    align-items: center;
     background-color: base.$secondary-color;
     color: base.$primary-color;
     width: 100%;
@@ -25,8 +24,16 @@ header {
 
     #logo {
         padding: 0 0 0 50px;
-        max-width: 270px;
+        max-width: 170px;
         height: auto;
+    }
+
+    /* Logotyp, utökad storlek vid min-bredd 375px. */
+    @media (min-width: 375px) {
+        #logo {
+            max-width: 270px;
+            height: auto;
+        }
     }
 }
 
@@ -43,14 +50,13 @@ footer {
     // box-shadow: 0 3px 20px 15px lighten(base.$black, 15%);
 }
 
-/* MOBIL-MENYN, ÄNDRAS TILL VANLIG NAV-MENY VID MINBREDD 992PX (STÖRRE SKÄRMAR). */
+/* Mobil-meny, ändras till vanlig meny vid min-bredd 992px. */
 @media (min-width: 992px) {
 
     /* Header. */
     header {
-        display: flex;
+        @include base.center-flex;
         justify-content: space-between;
-        align-items: center;
         background-color: base.$secondary-color;
         height: 150px;
         margin: 0;
@@ -108,7 +114,67 @@ footer {
     }
 }
 
-/* Media-query för mörkt färgtema. */
+/* Rubriker. */
+h1 {
+    text-align: center;
+    margin: 3rem 0 3rem 0;
+}
+
+h2 {
+    margin: 2rem 0 0.5rem 0;
+}
+
+/* Index-sidan. */
+.grid-container-index {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 2rem;
+    place-items: center;
+
+    .grid-item-1-index {
+        .img {
+            border: 10px solid base.$secondary-color;
+            border-radius: 5%;
+            box-shadow: 10px 10px 20px base.$black;
+            width: 100%;
+            height: auto;
+            max-width: 250px;
+        }
+    }
+
+    .grid-item-2-index {
+        padding: 0 1rem 0 1rem;
+        @include base.line-height-length;
+        margin: -2rem 0 2rem 0;
+
+        ul {
+            padding-left: 2rem;
+        }
+    }
+}
+
+/* Index-sidan, ändras till två kolumner vid min-bredd 992px. */
+@media (min-width: 992px) {
+
+    h1 {
+        margin: 5rem 0 6rem 0;
+    }
+
+    .grid-container-index {
+        grid-template-columns: repeat(2, 1fr);
+        place-items: start center;
+        margin: 0 0 5rem 0;
+
+        .grid-item-1-index {
+            .img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+/* Media-query för mörkt färgtema, gäller samtliga sidor. */
 @media (prefers-color-scheme:dark) {
     body {
         background-color: base.$primary-dark-color;
