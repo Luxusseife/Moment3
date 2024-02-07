@@ -124,21 +124,17 @@ h2 {
     margin: 2rem 0 0.5rem 0;
 }
 
-/* Index-sidan. */
-.grid-container-index {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    row-gap: 2rem;
-    place-items: center;
+/* Index-sidan och SASS-sidan. */
+.grid-container-index, .grid-container-sass {
+    @include grid-container-small;
 
-    .grid-item-1-index {
+    .grid-item-1-index, .grid-item-1-sass {
         .img {
             @include images;
         }
     }
 
-    .grid-item-2-index {
+    .grid-item-2-index, .grid-item-2-sass {
         padding: 0 1rem 0 1rem;
         @include line-height-length;
         margin: -2rem 0 2rem 0;
@@ -149,19 +145,17 @@ h2 {
     }
 }
 
-/* Index-sidan, ändras till två kolumner vid min-bredd 992px. */
+/* Index- och SASS-sidan, ändras till två kolumner vid min-bredd 992px. */
 @media (min-width: 992px) {
 
     h1 {
         margin: 5rem 0 6rem 0;
     }
 
-    .grid-container-index {
-        grid-template-columns: repeat(2, 1fr);
-        place-items: start center;
-        margin: 0 0 5rem 0;
+    .grid-container-index, .grid-container-sass {
+        @include grid-container-large;
 
-        .grid-item-1-index {
+        .grid-item-1-index, .grid-item-1-sass {
             .img {
                 max-width: 100%;
             }
@@ -210,11 +204,11 @@ h2 {
         @include text-shadow;
     }
 
-    h1, h2, .grid-item-2-index p, .grid-item-2-index ul {
+    h1, h2, .grid-item-2-index p, .grid-item-2-index ul, .grid-item-2-sass p {
         color: $primary-color;
     }
 
-    .grid-container-index .grid-item-1-index .img {
+    .grid-container-index .grid-item-1-index .img, .grid-container-sass .grid-item-1-sass .img {
         border: 10px solid $primary-color;
     }
 }

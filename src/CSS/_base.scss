@@ -37,6 +37,23 @@ $secondary-dark-color: darken($secondary-color, 15%);
     text-shadow: 2px 4px 3px $black;
 }
 
+// Mixins för grid-containers.
+@mixin grid-container-small {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 2rem;
+    place-items: center;
+}
+
+@mixin grid-container-large {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    place-items: start center;
+    margin: 0 0 5rem 0;
+}
+
 // Mixin för bilder.
 @mixin images {
     border: 10px solid $secondary-color;
