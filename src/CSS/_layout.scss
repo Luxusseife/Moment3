@@ -1,11 +1,11 @@
-@use 'base';
-@use 'component';
+@use 'base' as *;
+@use 'component' as *;
 
 /* Body och färgstandard för ljust färgtema.*/
 body {
-    font: 100% base.$font-stack;
-    background-color: base.$primary-color;
-    color: base.$secondary-color;
+    font: 100% $font-stack;
+    background-color: $primary-color;
+    color: $secondary-color;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,14 +13,14 @@ body {
 
 /* Header inkl. logotyp. */
 header {
-    @include base.center-flex;
+    @include center-flex;
     justify-content: space-between;
-    background-color: base.$secondary-color;
-    color: base.$primary-color;
+    background-color: $secondary-color;
+    color: $primary-color;
     width: 100%;
     height: 150px;
     margin: 0;
-    box-shadow: 0 3px 20px 10px lighten(base.$black, 15%);
+    box-shadow: 0 3px 20px 10px lighten($black, 15%);
 
     #logo {
         padding: 0 0 0 50px;
@@ -42,12 +42,12 @@ footer {
     margin-top: auto;
     width: 100%;
     height: 100px;
-    background-color: base.$secondary-color;
-    color: base.$primary-color;
+    background-color: $secondary-color;
+    color: $primary-color;
     text-align: center;
     line-height: 1.6;
     padding: 1rem 0 0 0;
-    // box-shadow: 0 3px 20px 15px lighten(base.$black, 15%);
+    // box-shadow: 0 3px 20px 15px lighten($black, 15%);
 }
 
 /* Mobil-meny, ändras till vanlig meny vid min-bredd 992px. */
@@ -55,9 +55,9 @@ footer {
 
     /* Header. */
     header {
-        @include base.center-flex;
+        @include center-flex;
         justify-content: space-between;
-        background-color: base.$secondary-color;
+        background-color: $secondary-color;
         height: 150px;
         margin: 0;
     }
@@ -90,7 +90,7 @@ footer {
             &:hover {
                 cursor: pointer;
                 text-decoration: none;
-                color: base.$primary-color;
+                color: $primary-color;
                 border-radius: 5px;
             }
         }
@@ -98,7 +98,7 @@ footer {
         a {
             background-color: transparent;
             border: none;
-            color: base.$primary-color;
+            color: $primary-color;
             padding: 20px 0;
             margin: 0 0.5rem 0 0.5rem;
             box-shadow: none;
@@ -106,8 +106,8 @@ footer {
             font-size: 22px;
 
             &:hover {
-                text-shadow: 2px 4px 3px base.$black;
-                color: base.$primary-color;
+                @include text-shadow;
+                color: $primary-color;
                 text-decoration: none;
             }
         }  
@@ -134,18 +134,13 @@ h2 {
 
     .grid-item-1-index {
         .img {
-            border: 10px solid base.$secondary-color;
-            border-radius: 5%;
-            box-shadow: 10px 10px 20px base.$black;
-            width: 100%;
-            height: auto;
-            max-width: 250px;
+            @include images;
         }
     }
 
     .grid-item-2-index {
         padding: 0 1rem 0 1rem;
-        @include base.line-height-length;
+        @include line-height-length;
         margin: -2rem 0 2rem 0;
 
         ul {
@@ -177,37 +172,49 @@ h2 {
 /* Media-query för mörkt färgtema, gäller samtliga sidor. */
 @media (prefers-color-scheme:dark) {
     body {
-        background-color: base.$primary-dark-color;
-        color: base.$secondary-dark-color;
+        background-color: $primary-dark-color;
+        color: $secondary-dark-color;
     }
 
     header {
-        box-shadow: 0 3px 20px 10px lighten(base.$black, 5%);
+        box-shadow: 0 3px 20px 10px lighten($black, 5%);
     }
 
     header, footer, nav ul {
-        background-color: base.$secondary-dark-color;
+        background-color: $secondary-dark-color;
     }
 
     @media (max-width: 991px) {
         nav {
-            background-color: base.$secondary-dark-color;
+            background-color: $secondary-dark-color;
         }
     }
 
     nav li {
-        color: base.$primary-color; 
+        color: $primary-color; 
 
         &:hover {
-            background-color: darken(base.$primary-dark-color, 5%);
+            background-color: darken($primary-dark-color, 5%);
         }
     }
 
     nav a {
-        color: base.$primary-color;
+        color: $primary-color;
     }
 
     .close {
-        box-shadow: 0 50px 0 92.5px base.$secondary-dark-color;
+        box-shadow: 0 50px 0 92.5px $secondary-dark-color;
+    }
+
+    h1, h2 {
+        @include text-shadow;
+    }
+
+    h1, h2, .grid-item-2-index p, .grid-item-2-index ul {
+        color: $primary-color;
+    }
+
+    .grid-container-index .grid-item-1-index .img {
+        border: 10px solid $primary-color;
     }
 }

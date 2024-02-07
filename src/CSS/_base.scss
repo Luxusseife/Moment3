@@ -17,7 +17,7 @@ $primary-color: #e3f5eb;
 $secondary-color: #3c5c4f;
 
 // Färger, mörkt tema.
-$primary-dark-color: $secondary-color;
+$primary-dark-color: darken($secondary-color, 5%);
 $secondary-dark-color: darken($secondary-color, 15%);
 
 // Mixin för flex, centering. 
@@ -30,4 +30,19 @@ $secondary-dark-color: darken($secondary-color, 15%);
 @mixin line-height-length {
     line-height: 1.6;
     max-width: 55ch;
+}
+
+// Mixin för text-skugga. 
+@mixin text-shadow {
+    text-shadow: 2px 4px 3px $black;
+}
+
+// Mixin för bilder.
+@mixin images {
+    border: 10px solid $secondary-color;
+    border-radius: 5%;
+    box-shadow: 10px 10px 20px $black;
+    width: 100%;
+    height: auto;
+    max-width: 250px;
 }

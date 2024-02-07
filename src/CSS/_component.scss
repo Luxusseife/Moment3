@@ -1,4 +1,4 @@
-@use 'base';
+@use 'base' as *;
 
 /* Dropdown, utfälld meny som visas vid meny-klick. */
 nav {
@@ -6,7 +6,7 @@ nav {
     position: absolute;
     right: 0;
     top: 150px;
-    background-color: base.$secondary-color;
+    background-color: $secondary-color;
     font-size: 1.4rem;
     width: 300px;
     height: 425px;
@@ -25,20 +25,20 @@ nav {
         padding: 1rem 0;
 
         &:hover {
-            text-shadow: 2px 4px 3px base.$black;
-            background-color: lighten(base.$secondary-color, 5%);
+            @include text-shadow;
+            background-color: lighten($secondary-color, 5%);
         }
     }
 
     a {
-        color: base.$primary-color;
+        color: $primary-color;
         padding: 20px 50px;
         text-decoration: none;
         font-size: 24px;
 
         &:hover {
-            text-shadow: 2px 4px 3px base.$black;
-            color: base.$primary-color;
+            @include text-shadow;
+            color: $primary-color;
             text-decoration: none;
         }
     }
@@ -46,23 +46,23 @@ nav {
 
 /* Meny-knapp, öppnar menyn nav. */
 .menu-btn {
-    @include base.center-flex;
-    background-color: lighten(base.$secondary-color, 5%);
+    @include center-flex;
+    background-color: lighten($secondary-color, 5%);
     cursor: pointer;
     padding: 10px 10px;
 
     &:hover {
-        text-shadow: 2px 2px 3px base.$black;
+        @include text-shadow;
     }
 }
 
 .open {
     margin: 0 5% 0 0;
-    border: 1px solid base.$secondary-color;
+    border: 1px solid $secondary-color;
     border-radius: 5px;
 
     &:hover {
-     box-shadow: 0 1px 15px 5px lighten(base.$black, 15%);
+     box-shadow: 0 1px 15px 5px lighten($black, 15%);
     }
 }
 
@@ -73,7 +73,7 @@ nav {
 /* Hamburger-ikon, tre svarta streck. */
 .bars {
     display: block;
-    background-color: base.$primary-color;
+    background-color: $primary-color;
     width: 20px;
     height: 3px;
     margin: 5px 0;
@@ -81,7 +81,7 @@ nav {
 
 /* Meny-text; MENY och STÄNG. */
 .menu-text {
-    color: base.$primary-color;
+    color: $primary-color;
     font-weight: bold;
     font-size: 18px;
 }
@@ -94,11 +94,11 @@ nav {
     margin-bottom: 3rem;
     padding: 14px 10px;
     border: none;
-    border: 1px solid base.$secondary-color;
+    border: 1px solid $secondary-color;
     border-radius: 5px;
 
     &:hover {
-        box-shadow: 0 1px 15px 5px lighten(base.$black, 15%);
+        box-shadow: 0 1px 15px 5px lighten($black, 15%);
     }
 }
 
